@@ -12,17 +12,15 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
-public class TransacaoCreateDTO {
+@NoArgsConstructor
+public class TransacaoPutDTO {
 
     @NotNull
     private TipoTransacao tipo;
     @DecimalMin(value = "0.01")
     private Double valor;
-
     private String descricao;
-
     @NotNull
     private LocalDateTime data;
 }

@@ -1,4 +1,4 @@
-package com.joaopedroduarte.gerenciador;
+package com.joaopedroduarte.gerenciador.enums;
 
 public enum TipoTransacao {
     RECEITA,

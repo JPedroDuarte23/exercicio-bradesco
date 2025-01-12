@@ -3,9 +3,9 @@ package com.joaopedroduarte.gerenciador.security;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.interfaces.Claim;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.joaopedroduarte.gerenciador.entity.Usuario;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +20,10 @@ public class JwtTokenProvider {
 
     @Value("${jwt.validade}")
     private long tempoDeExpiracao;
-    public String generarTokenForUsuario(Optional<Usuario> usuario) {
+    public String generarTokenForUsuario(Usuario usuario) {
 
         return JWT.create()
-                .withClaim("id", usuario.get().getId())
+                .withClaim("id", usuario.getId())
                 .withExpiresAt(new Date(System.currentTimeMillis() + tempoDeExpiracao))
                 .sign(Algorithm.HMAC256(palavraPasseToken));
     }
@@ -45,5 +45,7 @@ public class JwtTokenProvider {
             return false;
         }
     }
+
+
 
 }

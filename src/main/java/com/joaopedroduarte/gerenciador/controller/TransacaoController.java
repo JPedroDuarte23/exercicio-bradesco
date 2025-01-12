@@ -1,14 +1,20 @@
 package com.joaopedroduarte.gerenciador.controller;
 
+import com.joaopedroduarte.gerenciador.dto.transacao.Relatorio;
 import com.joaopedroduarte.gerenciador.dto.transacao.TransacaoCreateDTO;
+import com.joaopedroduarte.gerenciador.dto.transacao.TransacaoPatchDTO;
+import com.joaopedroduarte.gerenciador.dto.transacao.TransacaoPutDTO;
 import com.joaopedroduarte.gerenciador.entity.Transacao;
 import com.joaopedroduarte.gerenciador.service.TransacaoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import static org.springframework.http.ResponseEntity.status;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -23,7 +29,7 @@ public class TransacaoController {
     public ResponseEntity<List<Transacao>> retornarTodasAsTransacoes(
             @RequestHeader("Authorization") String token
     ) {
-        return status(200).body(service.getTransacoesPorUsuario(token));
+        return status(200).body(service.buscarTransacoesPorUsuario(token));
     }
 
     @GetMapping("/{id}")
@@ -31,7 +37,7 @@ public class TransacaoController {
             @PathVariable Long id,
             @RequestHeader("Authorization") String token
     ) {
-        return status(200).body(service.getTransacao(id, token));
+        return status(200).body(service.buscarTransacao(id, token));
     }
 
     @PostMapping
@@ -39,22 +45,42 @@ public class TransacaoController {
             @RequestBody @Valid TransacaoCreateDTO transacaoCreateDTO,
             @RequestHeader("Authorization") String token
     ) {
-        return status(202).body(service.postTransacao(transacaoCreateDTO, token));
+        return status(201).body(service.registrarTransacao(transacaoCreateDTO, token));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Transacao> alterarTransacao(
             @PathVariable Long id,
+            @RequestBody TransacaoPutDTO updateDTO,
             @RequestHeader("Authorization") String token
     ) {
-        return null;
+        return status(200).body(service.alterarTransacaoTotal(id, updateDTO, token));
     }
 
-    @PutMapping("/{id}")
+    @PatchMapping("/{id}")
+    public ResponseEntity<Transacao> alterarTransacaoParcial(
+            @PathVariable Long id,
+            @RequestBody TransacaoPatchDTO updateDTO,
+            @RequestHeader("Authorization") String token
+    ){
+        return status(200).body(service.alterarTransacaoParcial(id, updateDTO, token));
+    }
+
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirTransacao(
             @PathVariable Long id,
             @RequestHeader("Authorization") String token
     ) {
-        return null;
+        service.deletarTransacao(token, id);
+        return status(204).build();
+    }
+
+    @GetMapping("/relatorio")
+    public ResponseEntity<Relatorio> gerarRelatorio(
+            @RequestParam LocalDate dataInicio,
+            @RequestParam LocalDate dataFim,
+            @RequestHeader("Authorization") String token
+            ){
+        return status(200).body(service.gerarRelatorio(dataInicio, dataFim, token));
     }
 }

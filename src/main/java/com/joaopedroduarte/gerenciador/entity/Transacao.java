@@ -1,7 +1,7 @@
 package com.joaopedroduarte.gerenciador.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.joaopedroduarte.gerenciador.TipoTransacao;
+import com.joaopedroduarte.gerenciador.enums.TipoTransacao;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,6 +27,7 @@ public class Transacao {
     private String descricao;
 
     @Column(nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime data;
 
     @ManyToOne(fetch = FetchType.LAZY)

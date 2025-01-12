@@ -23,5 +23,4 @@ public class Usuario {
     private String cpf;
     @Column(nullable = false)
     private String senha;
-
 }
