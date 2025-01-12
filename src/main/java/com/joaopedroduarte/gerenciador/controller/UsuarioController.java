@@ -4,6 +4,7 @@ import com.joaopedroduarte.gerenciador.dto.usuario.UsuarioCreateDTO;
 import com.joaopedroduarte.gerenciador.dto.usuario.UsuarioResponseDTO;
 import com.joaopedroduarte.gerenciador.entity.Usuario;
 import com.joaopedroduarte.gerenciador.service.UsuarioService;
+import jakarta.validation.Valid;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -20,7 +21,7 @@ public class UsuarioController {
     private UsuarioService service;
 
     @PostMapping
-    public ResponseEntity<UsuarioResponseDTO> cadastrarUsuario(@RequestBody UsuarioCreateDTO createDTO){
+    public ResponseEntity<UsuarioResponseDTO> cadastrarUsuario(@RequestBody @Valid UsuarioCreateDTO createDTO){
         return status(201).body(service.cadastrarUsuario(createDTO));
     }
 }

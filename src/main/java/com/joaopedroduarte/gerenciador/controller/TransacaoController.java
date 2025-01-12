@@ -45,13 +45,13 @@ public class TransacaoController {
             @RequestBody @Valid TransacaoCreateDTO transacaoCreateDTO,
             @RequestHeader("Authorization") String token
     ) {
-        return status(201).body(service.registrarTransacao(transacaoCreateDTO, token));
+        return status(201   ).body(service.registrarTransacao(transacaoCreateDTO, token));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<Transacao> alterarTransacao(
             @PathVariable Long id,
-            @RequestBody TransacaoPutDTO updateDTO,
+            @RequestBody @Valid TransacaoPutDTO updateDTO,
             @RequestHeader("Authorization") String token
     ) {
         return status(200).body(service.alterarTransacaoTotal(id, updateDTO, token));
@@ -60,7 +60,7 @@ public class TransacaoController {
     @PatchMapping("/{id}")
     public ResponseEntity<Transacao> alterarTransacaoParcial(
             @PathVariable Long id,
-            @RequestBody TransacaoPatchDTO updateDTO,
+            @RequestBody @Valid TransacaoPatchDTO updateDTO,
             @RequestHeader("Authorization") String token
     ){
         return status(200).body(service.alterarTransacaoParcial(id, updateDTO, token));
