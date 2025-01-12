@@ -1,6 +1,8 @@
 # Gerenciador de Finanças
 
 O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Boot para facilitar o controle de receitas e despesas. Ela permite o cadastro de usuários, gerenciamento de transações e geração de relatórios financeiros. A aplicação é hospedada na Azure utilizando Azure SQL Database para armazenamento de dados e Azure App Service para deployment, proporcionando uma solução escalável e acessível via web.
+
+Para testar a aplicação na nuvem [CLIQUE AQUI](https://gerenciador-de-financas-hgejf8h3cefve8et.canadacentral-01.azurewebsites.net/swagger-ui/index.html) 
 </br>
 
 ## 📋 Funcionalidades
@@ -268,6 +270,7 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
   
 - **Observações**
   - O CPF não pode estar na formatação com `.` e `-` e precisa ser um CPF válido
+  - A senha tem que ter entre 8 e 20 caracteres
     
 </br>
 
