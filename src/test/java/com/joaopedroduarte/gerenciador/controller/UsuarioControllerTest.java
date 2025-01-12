@@ -48,7 +48,7 @@ class UsuarioControllerTest {
                         .content("{\n" +
                                 "  \"nome\": \"João\",\n" +
                                 "  \"email\": \"joao@exemplo.com\",\n" +
-                                "  \"cpf\": \"12345678901\",\n" +
+                                "  \"cpf\": \"36199122119\",\n" +
                                 "  \"senha\": \"senha123\"\n" +
                                 "}\n"))
                 .andExpect(status().isCreated())
