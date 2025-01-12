@@ -43,7 +43,7 @@ class UsuarioControllerTest {
 
         when(service.cadastrarUsuario(any())).thenReturn(responseDTO);
 
-        mockMvc.perform(post("/api/usuario")
+        mockMvc.perform(post("/api/usuarios")
                         .contentType("application/json")
                         .content("{\n" +
                                 "  \"nome\": \"João\",\n" +
