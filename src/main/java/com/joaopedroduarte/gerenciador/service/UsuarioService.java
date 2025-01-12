@@ -30,7 +30,7 @@ public class UsuarioService {
             throw new ResponseStatusException(HttpStatusCode.valueOf(409), "O e-mail informado já está cadastrado");
         }
         if(repostory.existsByCpf(dto.getCpf())){
-            throw new ResponseStatusException(HttpStatusCode.valueOf(409), "O e-mail informado já está cadastrado");
+            throw new ResponseStatusException(HttpStatusCode.valueOf(409), "O cpf informado já está cadastrado");
         }
 
         // Realizar decodificação da senha para inserção no banco

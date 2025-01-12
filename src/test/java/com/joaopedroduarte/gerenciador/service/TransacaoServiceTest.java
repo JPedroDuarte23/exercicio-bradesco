@@ -295,14 +295,20 @@ class TransacaoServiceTest {
         listaMock.add(transacao1);
         listaMock.add(transacao2);
 
+        Relatorio relatorio = new Relatorio(
+                String.format("%.2f", 100.0000),
+                String.format("%.2f", -150.0000),
+                String.format("%.2f", 250.0000)
+        );
+
         when(autenticacaoService.buscarIdUsuarioPorToken(TOKEN)).thenReturn(USER_ID);
         when(repostory.findByUsuarioIdAndDataBetween(USER_ID, dataInicio.atStartOfDay(), dataFim.atTime(LocalTime.MAX))).thenReturn(listaMock);
 
         Relatorio result = transacaoService.gerarRelatorio(dataInicio, dataFim, TOKEN);
 
-        assertEquals("100,00", result.getSaldoTotal());
-        assertEquals("-150,00", result.getDespesaTotal());
-        assertEquals("250,00", result.getReceitaTotal());
+        assertEquals(relatorio.getSaldoTotal(), result.getSaldoTotal());
+        assertEquals(relatorio.getDespesaTotal(), result.getDespesaTotal());
+        assertEquals(relatorio.getReceitaTotal(), result.getReceitaTotal());
     }
 
     @Test

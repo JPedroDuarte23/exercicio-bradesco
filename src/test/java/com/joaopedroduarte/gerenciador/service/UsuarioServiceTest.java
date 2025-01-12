@@ -63,7 +63,7 @@ class UsuarioServiceTest {
             usuarioService.cadastrarUsuario(dto);
         });
         assertEquals(409, exception.getStatusCode().value());
-        assertEquals("O e-mail informado já está cadastrado", exception.getReason());
+        assertEquals("O cpf informado já está cadastrado", exception.getReason());
     }
 
     @Test

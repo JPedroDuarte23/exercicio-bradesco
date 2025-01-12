@@ -13,7 +13,7 @@ import java.util.List;
 
 import static org.springframework.http.ResponseEntity.status;
 @RestController
-@RequestMapping("/api/usuario")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
 
     @Autowired
