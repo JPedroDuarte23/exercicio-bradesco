@@ -49,7 +49,7 @@ class UsuarioControllerTest {
                                 "  \"nome\": \"João\",\n" +
                                 "  \"email\": \"joao@exemplo.com\",\n" +
                                 "  \"cpf\": \"36199122119\",\n" +
-                                "  \"senha\": \"senha123\"\n" +
+                                "  \"senha\": \"Senha123#\"\n" +
                                 "}\n"))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.nome").value("João"))

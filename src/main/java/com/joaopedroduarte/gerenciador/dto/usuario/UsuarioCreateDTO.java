@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,6 +26,6 @@ public class UsuarioCreateDTO {
     private String email;
     @CPF(message = "O CPF precisa ser válido")
     private String cpf;
-    @NotBlank(message = "A senha não pode estar vazia")
+    @Size(min = 8, max = 20, message = "A senha deve ter entre 8 e 20 caracteres.")
     private String senha;
 }
