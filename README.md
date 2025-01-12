@@ -255,7 +255,7 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
 ```json
 {
   "nome": "Mathues",
-  "cpf": 12312312312,
+  "cpf": "12312312312",
   "email": "matheus@gmail.com",
   "senha": "senha123"
 }
@@ -266,7 +266,7 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
   - `409` Conflict: E-mail ou CPF já cadastrado no sistema
   
 - **Observações**
-  - O CPF não pode estar na formatação com `.` e `-`.
+  - O CPF não pode estar na formatação com `.` e `-` e precisa ser um CPF válido
     
 </br>
 
