@@ -260,11 +260,14 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
   "senha": "senha123"
 }
 ```
-    
 - **Respostas**
   - `201` Created: Retorna o usuário cadastrado
   - `400` Bad Request: Erro na chamada do endpoint
-  - `409` Conflict: E-mail ou CPF já cadastrado no sistema 
+  - `409` Conflict: E-mail ou CPF já cadastrado no sistema
+  
+- **Observações**
+  - O CPF não pode estar na formatação com `.` e `-`.
+    
 </br>
 
 ---
