@@ -34,7 +34,8 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
    git clone https://github.com/seu-usuario/gerenciador-de-financas.git
    cd gerenciador-de-financas
 
-2. **Configure o banco de dados**:  
+2. **Configure o banco de dados**:
+   - O programa atualmente está utilizando o banco de dados que configurei, caso não queira mudar o banco, é só pular esse passo
    - Certifique-se de que o **Azure SQL Database** está configurado corretamente.
    - Atualize as credenciais no arquivo `application.properties` localizado no diretório `src/main/resources/` com os seguintes valores:
 
@@ -59,11 +60,11 @@ O Gerenciador de Finanças é uma aplicação simples desenvolvida com Spring Bo
      spring.datasource.password=minhasenha123
      ```
 
-3. **Compile e execute a aplicação**:  
+4. **Compile e execute a aplicação**:  
    ```bash
    mvn spring-boot:run
 
-4. **Acesse a aplicação**:  
+5. **Acesse a aplicação**:  
    - A aplicação estará disponível localmente em:  
      `http://localhost:8080`
   </br>
